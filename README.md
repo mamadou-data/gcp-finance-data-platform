@@ -21,19 +21,8 @@ L’objectif est de démontrer des pratiques industrielles de Data Engineering :
 ---
  
 ## 🏗️ Architecture globale
-```
-Cloud Scheduler
-      ↓
-BigQuery Stored Procedure
-      ↓
-Bronze (GCS – Raw Data)
-      ↓
-Silver (Nettoyage & transformations)
-      ↓
-Gold (Star Schema)
-      ↓
-Data Quality & Audit Logging
-```
+
+![Architecture](architecture/architecture_diagram.png)
 
 Architecture 100% serverless (pas de cluster permanent).
 
