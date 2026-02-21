@@ -24,11 +24,25 @@ L’objectif est de démontrer des pratiques industrielles de Data Engineering :
 
 ![Architecture](screenshots/architecture_diagram.png)
 
+## 🔄 Flux de traitement
+```
+Cloud Scheduler
+        ↓
+BigQuery Stored Procedure
+        ↓
+Bronze (GCS – Raw)
+        ↓
+Silver (Transformation)
+        ↓
+Gold (Star Schema)
+        ↓
+Data Quality & Audit Logging
+```
 Architecture 100% serverless (pas de cluster permanent).
 
 ---
 
-## 🥉 Bronze Layer – Data Lake
+## 🥉 Bronze Layer – Data Lake (GCS)
 
 - Stockage des données brutes dans Google Cloud Storage
 - Zone d’ingestion immuable
@@ -88,7 +102,8 @@ Résultats stockés dans :
 - `pipeline_runs`
 
 Approche :
-Fail-fast logique intégrée dans la procédure.
+- Validation systématique à chaque exécution.
+- Log structuré pour audit & traçabilité
 
 ---
 
@@ -154,6 +169,17 @@ Permet :
 
 ---
 
+## 💰 Optimisation des coûts
+
+- Partitionnement pour limiter les scans
+- Clustering pour améliorer les performances
+- Orchestration serverless (pas de cluster permanent)
+- GCS utilisé uniquement pour stockage brut
+
+Architecture conçue pour minimiser les coûts BigQuery.
+
+---
+
 ## 🚀 Améliorations futures
 
 - Gestion avancée des erreurs
@@ -166,10 +192,13 @@ Permet :
 
 ## 🎯 Compétences démontrées
 
-- Data Architecture
-- Cloud Data Engineering
+- Conception d’architecture Data Platform
+- Data Engineering sur GCP
 - BigQuery optimization
 - SQL avancé
+- Modélisation en étoile
 - Orchestration serverless
+- Data Quality & audit logging
+- Design cloud-native scalable
 - Data Quality design
 - Audit logging
