@@ -22,7 +22,7 @@ L’objectif est de démontrer des pratiques industrielles de Data Engineering :
  
 ## 🏗️ Architecture globale
 
-![Architecture](architecture/architecture_diagram.png)
+![Architecture](screenshots/architecture_diagram.png)
 
 Architecture 100% serverless (pas de cluster permanent).
 
@@ -57,6 +57,7 @@ Séparer les données techniques des données analytiques.
 ## 🥇 Gold Layer – Data Warehouse
 
 Implémentation d’un modèle en étoile :
+![bigquery_star_schema](screenshots/bigquery_star_schema.png)
 
 ### Tables de faits
 - `fact_transactions`
@@ -118,6 +119,8 @@ Chaque exécution génère :
 - end_time
 - status (SUCCESS / FAILED)
 - message
+
+![Monitoring](screenshots/pipeline_runs.png)
 
 Permet :
 
